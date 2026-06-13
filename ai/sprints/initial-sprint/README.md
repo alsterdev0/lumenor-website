@@ -447,15 +447,25 @@ Updated June 13, 2026:
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
 - Current desktop visual compare result: `145632` mismatch pixels, `9.2582%`. Remaining visible differences are primarily non-identical portfolio logo sources and hand-built hero-network details.
+- Live desktop visual compare result at `https://lumenorlabs.com/`: `145632` mismatch pixels, `9.2582%`, written to `validation/lumenor-live-1055x1491.diff.png`.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
 - DigitalOcean App Platform spec added at `deploy/digitalocean-app.yaml`; `minimum_tls_version` is configured under the domain entry because DigitalOcean rejects it at the top level.
 - Planned source repository `Lumenor/lumenor-website` was not visible to the connected GitHub credentials. Deployment spec now points to `https://github.com/alsterdev0/lumenor-website.git`, which is being used as the App Platform source for this implementation.
-- DigitalOcean DNS zone `lumenorlabs.com` exists with DigitalOcean NS records. Current records include Google verification/mail records and no app-managed apex web record yet.
+- DigitalOcean DNS zone `lumenorlabs.com` exists with DigitalOcean NS records. Current records include Google verification/mail records plus App Platform-managed apex `A` and `AAAA` records.
 - GitHub repository `https://github.com/alsterdev0/lumenor-website` was created and `main` was pushed.
 - `doctl apps spec validate deploy/digitalocean-app.yaml` and `doctl apps propose --spec deploy/digitalocean-app.yaml` pass.
 - Earlier `github:` source deployment was blocked by DigitalOcean GitHub integration permissions: `GitHub user does not have access to alsterdev0/lumenor-website`.
 - The App Platform spec has been changed to the generic public `git:` clone URL source so deployment can proceed without requiring GitHub App installation access.
 - DNS delegation check passes: `lumenorlabs.com` resolves to `ns1.digitalocean.com`, `ns2.digitalocean.com`, and `ns3.digitalocean.com`; `dig DS lumenorlabs.com` returns no DS records, so DNSSEC is not active at the parent.
+- DigitalOcean App Platform app is live:
+  - App ID: `45fb5cea-4d15-4877-aba6-fa4d31e045d1`
+  - Default ingress: `https://lumenor-website-kkauf.ondigitalocean.app`
+  - Active deployment ID: `86db0baa-e08f-4ef5-a968-0f3c0c2223a8`
+  - Active source commit: `2c2ce108b93d5fb851254b0f1a42ee25ca79e336`
+  - Primary domain: `https://lumenorlabs.com/`
+  - Domain phase: `ACTIVE`
+  - Certificate: `CN = lumenorlabs.com`, issuer `Google Trust Services WE1`, valid from `June 13, 2026` to `September 11, 2026`
+  - Browser smoke test at `1055 x 1491` passes on the live apex: HTTP `200`, expected title/H1/CTA, no horizontal overflow, all images loaded, no console errors
 - Logo-source gap remains: SnapCash and DataSea SVGs match the mock treatment, but official DigitalOcean Spaces bucket origins have not yet been verified in this workspace.
