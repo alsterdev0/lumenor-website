@@ -462,7 +462,7 @@ Updated June 13, 2026:
 - DigitalOcean App Platform app is live:
   - App ID: `45fb5cea-4d15-4877-aba6-fa4d31e045d1`
   - Default ingress: `https://lumenor-website-kkauf.ondigitalocean.app`
-  - Active deployment ID: `86db0baa-e08f-4ef5-a968-0f3c0c2223a8`
+  - Active deployment ID: `751e63e4-3697-4b02-a454-d37ea3f046f6`
   - Active source commit: `2c2ce108b93d5fb851254b0f1a42ee25ca79e336`
   - Primary domain: `https://lumenorlabs.com/`
   - Domain phase: `ACTIVE`
