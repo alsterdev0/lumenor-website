@@ -448,7 +448,7 @@ Updated June 13, 2026:
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
 - Current desktop visual compare result: `137216` mismatch pixels, `8.7232%`. Remaining visible differences are primarily text antialiasing, official portfolio logo differences from the mock rendering, and hand-built hero-network details.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
-- Previous live desktop visual compare result at `https://lumenorlabs.com/`: `145632` mismatch pixels, `9.2582%`, written to `validation/lumenor-live-1055x1491.diff.png`. A new live capture is required after redeploying the typography change.
+- Live desktop visual compare result at `https://lumenorlabs.com/`: `137216` mismatch pixels, `8.7232%`, written to `validation/lumenor-live-1055x1491.diff.png`.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
@@ -463,8 +463,8 @@ Updated June 13, 2026:
 - DigitalOcean App Platform app is live:
   - App ID: `45fb5cea-4d15-4877-aba6-fa4d31e045d1`
   - Default ingress: `https://lumenor-website-kkauf.ondigitalocean.app`
-  - Active deployment ID: `751e63e4-3697-4b02-a454-d37ea3f046f6`
-  - Active source commit: `2c2ce108b93d5fb851254b0f1a42ee25ca79e336`
+  - Active deployment ID: `bf7a2cb4-36cf-4141-98ae-38a9797a24ab`
+  - Active source commit: `9b6dfe0cb9eea424f26a5fc470d4891d8f525015`
   - Primary domain: `https://lumenorlabs.com/`
   - Domain phase: `ACTIVE`
   - Certificate: `CN = lumenorlabs.com`, issuer `Google Trust Services WE1`, valid from `June 13, 2026` to `September 11, 2026`
