@@ -446,7 +446,7 @@ Updated June 13, 2026:
 - Lumenor source assets copied into `src/assets/`; cropped and transparent web variants derived without modifying the original sprint assets.
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
-- Current desktop visual compare result: `137015` mismatch pixels, `8.7104%`. Remaining visible differences are primarily non-identical portfolio logo sources, text antialiasing, and hand-built hero-network details.
+- Current desktop visual compare result: `137216` mismatch pixels, `8.7232%`. Remaining visible differences are primarily text antialiasing, official portfolio logo differences from the mock rendering, and hand-built hero-network details.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
 - Previous live desktop visual compare result at `https://lumenorlabs.com/`: `145632` mismatch pixels, `9.2582%`, written to `validation/lumenor-live-1055x1491.diff.png`. A new live capture is required after redeploying the typography change.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
@@ -469,4 +469,6 @@ Updated June 13, 2026:
   - Domain phase: `ACTIVE`
   - Certificate: `CN = lumenorlabs.com`, issuer `Google Trust Services WE1`, valid from `June 13, 2026` to `September 11, 2026`
   - Browser smoke test at `1055 x 1491` passes on the live apex: HTTP `200`, expected title/H1/CTA, no horizontal overflow, all images loaded, no console errors
-- Logo-source gap remains: SnapCash and DataSea SVGs match the mock treatment, but official DigitalOcean Spaces bucket origins have not yet been verified in this workspace.
+- Logo provenance is verified:
+  - SnapCash: `s3://snapcash/logos/logo-light.svg` in DigitalOcean Spaces region `sfo3`
+  - DataSea: `s3://datasea/website/public/images/logo/light-logo.svg` in DigitalOcean Spaces region `sfo3`
