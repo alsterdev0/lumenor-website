@@ -453,4 +453,8 @@ Updated June 13, 2026:
 - DigitalOcean App Platform spec added at `deploy/digitalocean-app.yaml`; `minimum_tls_version` was omitted because the current DigitalOcean App Platform spec parser rejects that field.
 - Planned source repository `Lumenor/lumenor-website` was not visible to the connected GitHub credentials. Deployment spec now points to `alsterdev0/lumenor-website`, which is being used as the App Platform source for this implementation.
 - DigitalOcean DNS zone `lumenorlabs.com` exists with DigitalOcean NS records. Current records include Google verification/mail records and no app-managed apex web record yet.
+- GitHub repository `https://github.com/alsterdev0/lumenor-website` was created and `main` was pushed.
+- `doctl apps spec validate deploy/digitalocean-app.yaml` and `doctl apps propose --spec deploy/digitalocean-app.yaml` pass.
+- `doctl apps create --spec deploy/digitalocean-app.yaml --format ID,DefaultIngress,Created --wait` is blocked by DigitalOcean GitHub integration permissions: `GitHub user does not have access to alsterdev0/lumenor-website`.
+- The remaining deployment action is to grant DigitalOcean App Platform GitHub access to `alsterdev0/lumenor-website` at `https://cloud.digitalocean.com/apps/github/install`, then rerun the create command above.
 - Logo-source gap remains: SnapCash and DataSea SVGs match the mock treatment, but official DigitalOcean Spaces bucket origins have not yet been verified in this workspace.
