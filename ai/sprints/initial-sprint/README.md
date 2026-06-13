@@ -446,8 +446,9 @@ Updated June 13, 2026:
 - Lumenor source assets copied into `src/assets/`; cropped and transparent web variants derived without modifying the original sprint assets.
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
-- Current desktop visual compare result: `145632` mismatch pixels, `9.2582%`. Remaining visible differences are primarily non-identical portfolio logo sources and hand-built hero-network details.
-- Live desktop visual compare result at `https://lumenorlabs.com/`: `145632` mismatch pixels, `9.2582%`, written to `validation/lumenor-live-1055x1491.diff.png`.
+- Current desktop visual compare result: `137015` mismatch pixels, `8.7104%`. Remaining visible differences are primarily non-identical portfolio logo sources, text antialiasing, and hand-built hero-network details.
+- Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
+- Previous live desktop visual compare result at `https://lumenorlabs.com/`: `145632` mismatch pixels, `9.2582%`, written to `validation/lumenor-live-1055x1491.diff.png`. A new live capture is required after redeploying the typography change.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
