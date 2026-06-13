@@ -3,10 +3,9 @@ region: nyc
 static_sites:
   - name: lumenor-website
     environment_slug: html
-    github:
-      repo: alsterdev0/lumenor-website
+    git:
+      repo_clone_url: https://github.com/alsterdev0/lumenor-website.git
       branch: main
-      deploy_on_push: true
     build_command: npm ci && npm run build
     output_dir: dist
     routes:
