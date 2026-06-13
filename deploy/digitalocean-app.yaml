@@ -1,0 +1,17 @@
+name: lumenor-website
+region: nyc
+static_sites:
+  - name: lumenor-website
+    environment_slug: html
+    github:
+      repo: alsterdev0/lumenor-website
+      branch: main
+      deploy_on_push: true
+    build_command: npm ci && npm run build
+    output_dir: dist
+    routes:
+      - path: /
+domains:
+  - domain: lumenorlabs.com
+    type: PRIMARY
+    zone: lumenorlabs.com
