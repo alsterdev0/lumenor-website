@@ -457,4 +457,5 @@ Updated June 13, 2026:
 - `doctl apps spec validate deploy/digitalocean-app.yaml` and `doctl apps propose --spec deploy/digitalocean-app.yaml` pass.
 - `doctl apps create --spec deploy/digitalocean-app.yaml --format ID,DefaultIngress,Created --wait` is blocked by DigitalOcean GitHub integration permissions: `GitHub user does not have access to alsterdev0/lumenor-website`.
 - The remaining deployment action is to grant DigitalOcean App Platform GitHub access to `alsterdev0/lumenor-website` at `https://cloud.digitalocean.com/apps/github/install`, then rerun the create command above.
+- DNS delegation check passes: `lumenorlabs.com` resolves to `ns1.digitalocean.com`, `ns2.digitalocean.com`, and `ns3.digitalocean.com`; `dig DS lumenorlabs.com` returns no DS records, so DNSSEC is not active at the parent.
 - Logo-source gap remains: SnapCash and DataSea SVGs match the mock treatment, but official DigitalOcean Spaces bucket origins have not yet been verified in this workspace.
