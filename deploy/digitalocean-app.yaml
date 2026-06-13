@@ -14,3 +14,4 @@ domains:
   - domain: lumenorlabs.com
     type: PRIMARY
     zone: lumenorlabs.com
+    minimum_tls_version: "1.3"

@@ -450,7 +450,7 @@ Updated June 13, 2026:
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
-- DigitalOcean App Platform spec added at `deploy/digitalocean-app.yaml`; `minimum_tls_version` was omitted because the current DigitalOcean App Platform spec parser rejects that field.
+- DigitalOcean App Platform spec added at `deploy/digitalocean-app.yaml`; `minimum_tls_version` is configured under the domain entry because DigitalOcean rejects it at the top level.
 - Planned source repository `Lumenor/lumenor-website` was not visible to the connected GitHub credentials. Deployment spec now points to `https://github.com/alsterdev0/lumenor-website.git`, which is being used as the App Platform source for this implementation.
 - DigitalOcean DNS zone `lumenorlabs.com` exists with DigitalOcean NS records. Current records include Google verification/mail records and no app-managed apex web record yet.
 - GitHub repository `https://github.com/alsterdev0/lumenor-website` was created and `main` was pushed.
