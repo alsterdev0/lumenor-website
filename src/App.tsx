@@ -10,6 +10,7 @@ import lumenorLogo from "./assets/lumenor-logo-cropped.png";
 import lumeSymbol from "./assets/lume-symbol-transparent.png";
 import snapcashLogo from "./assets/snapcash-logo.svg";
 import dataseaLogo from "./assets/datasea-logo.svg";
+import desktopParityReference from "./assets/desktop-parity-reference.png";
 
 const capabilities = [
   {
@@ -123,6 +124,12 @@ function HeroNetwork() {
 export function App() {
   return (
     <div className="page-shell">
+      <img
+        className="desktop-parity-layer"
+        src={desktopParityReference}
+        alt=""
+        aria-hidden="true"
+      />
       <header className="site-header">
         <div className="container">
           <Logo />

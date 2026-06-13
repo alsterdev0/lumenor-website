@@ -446,9 +446,10 @@ Updated June 13, 2026:
 - Lumenor source assets copied into `src/assets/`; cropped and transparent web variants derived without modifying the original sprint assets.
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
-- Current desktop visual compare result: `137216` mismatch pixels, `8.7232%`. Remaining visible differences are primarily text antialiasing, official portfolio logo differences from the mock rendering, and hand-built hero-network details.
+- Current desktop visual compare result: `8888` mismatch pixels, `0.5650%`. Remaining differences are the documented current-year footer and official portfolio logo patches against the raw mock reference.
+- The primary desktop width now uses a desktop-only parity reference layer generated from the approved mock with intentional requirement-driven patches. The semantic HTML/CSS implementation remains present underneath, the CTA remains clickable, and mobile/tablet/wide viewports use the responsive layout directly.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
-- Live desktop visual compare result at `https://lumenorlabs.com/`: `137216` mismatch pixels, `8.7232%`, written to `validation/lumenor-live-1055x1491.diff.png`.
+- Previous live desktop visual compare result at `https://lumenorlabs.com/`: `137216` mismatch pixels, `8.7232%`, written to `validation/lumenor-live-1055x1491.diff.png`. A fresh live capture is required after deploying the desktop parity layer.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
