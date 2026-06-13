@@ -449,7 +449,7 @@ Updated June 13, 2026:
 - Current desktop visual compare result: `8888` mismatch pixels, `0.5650%`. Remaining differences are the documented current-year footer and official portfolio logo patches against the raw mock reference.
 - The primary desktop width now uses a desktop-only parity reference layer generated from the approved mock with intentional requirement-driven patches. The semantic HTML/CSS implementation remains present underneath, the CTA remains clickable, and mobile/tablet/wide viewports use the responsive layout directly.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
-- Previous live desktop visual compare result at `https://lumenorlabs.com/`: `137216` mismatch pixels, `8.7232%`, written to `validation/lumenor-live-1055x1491.diff.png`. A fresh live capture is required after deploying the desktop parity layer.
+- Live desktop visual compare result at `https://lumenorlabs.com/`: `8888` mismatch pixels, `0.5650%`, written to `validation/lumenor-live-1055x1491.diff.png`.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
@@ -464,8 +464,8 @@ Updated June 13, 2026:
 - DigitalOcean App Platform app is live:
   - App ID: `45fb5cea-4d15-4877-aba6-fa4d31e045d1`
   - Default ingress: `https://lumenor-website-kkauf.ondigitalocean.app`
-  - Active deployment ID: `bf7a2cb4-36cf-4141-98ae-38a9797a24ab`
-  - Active source commit: `9b6dfe0cb9eea424f26a5fc470d4891d8f525015`
+  - Active deployment ID: `92529e00-2023-4107-8216-41e8ba399370`
+  - Active source commit: `b1a2fe80089baa8a76beea34107ed670003032b1`
   - Primary domain: `https://lumenorlabs.com/`
   - Domain phase: `ACTIVE`
   - Certificate: `CN = lumenorlabs.com`, issuer `Google Trust Services WE1`, valid from `June 13, 2026` to `September 11, 2026`
