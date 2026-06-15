@@ -446,6 +446,8 @@ Updated June 15, 2026:
 - The previous hero SVG/icon composite and desktop parity reference overlay were removed; the hero now renders a single image in the existing hero visual slot.
 - Responsive hero sizing was tuned for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600` so the bitmap stays framed with no horizontal overflow.
 - Current desktop visual compare result after the approved hero replacement: `146157` mismatch pixels, `9.2916%`. The increase is expected because the original mock reference uses the earlier hero treatment.
+- Live desktop visual compare result at `https://lumenorlabs.com/` after deployment: `146149` mismatch pixels, `9.2911%`, written to `validation/lumenor-live-1055x1491.diff.png`.
+- Live browser smoke test at `1055 x 1491` passes on the apex: HTTP `200`, expected title/H1/CTA, hero image source is `/assets/lumenor-hero-BgCxJv7Q.png`, no horizontal overflow, all images loaded, no console errors.
 - `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully after the hero image replacement.
 
 Updated June 13, 2026:
@@ -454,10 +456,10 @@ Updated June 13, 2026:
 - Lumenor source assets copied into `src/assets/`; cropped and transparent web variants derived without modifying the original sprint assets.
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
-- Current desktop visual compare result: `8888` mismatch pixels, `0.5650%`. Remaining differences are the documented current-year footer and official portfolio logo patches against the raw mock reference.
+- June 13 desktop visual compare result before the approved hero replacement: `8888` mismatch pixels, `0.5650%`. Remaining differences at that point were the documented current-year footer and official portfolio logo patches against the raw mock reference.
 - Superseded on June 15, 2026: the primary desktop width previously used a desktop-only parity reference layer generated from the approved mock with intentional requirement-driven patches. That layer was removed when the supplied hero bitmap became the approved hero source.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
-- Live desktop visual compare result at `https://lumenorlabs.com/`: `8888` mismatch pixels, `0.5650%`, written to `validation/lumenor-live-1055x1491.diff.png`.
+- Superseded on June 15, 2026: live desktop visual compare result at `https://lumenorlabs.com/` was previously `8888` mismatch pixels, `0.5650%`, before the approved hero image replacement.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
 - Runtime browser checks pass for required widths: no horizontal overflow, no console errors, all images have nonzero rendered sources, CTA is `mailto:hello@lumenor.com`, and main headings exist.
 - `npm run typecheck`, `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully.
