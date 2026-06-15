@@ -1,16 +1,14 @@
 import {
   ArrowRight,
-  BarChart3,
   Code2,
   Globe2,
-  Settings,
-  UsersRound
+  Settings
 } from "lucide-react";
 import lumenorLogo from "./assets/lumenor-logo-cropped.png";
+import heroImage from "./assets/lumenor-hero.png";
 import lumeSymbol from "./assets/lume-symbol-transparent.png";
 import snapcashLogo from "./assets/snapcash-logo.svg";
 import dataseaLogo from "./assets/datasea-logo.svg";
-import desktopParityReference from "./assets/desktop-parity-reference.png";
 
 const capabilities = [
   {
@@ -51,72 +49,10 @@ function Logo({ className = "" }: { className?: string }) {
   return <img className={`logo-image ${className}`} src={lumenorLogo} alt="Lumenor" />;
 }
 
-function HeroNetwork() {
+function HeroArtwork() {
   return (
     <div className="hero-visual" aria-hidden="true">
-      <svg className="network-lines" viewBox="0 0 520 410" fill="none">
-        <ellipse cx="265" cy="207" rx="231" ry="160" stroke="#DFE7F2" strokeWidth="1" />
-        <ellipse
-          cx="265"
-          cy="207"
-          rx="186"
-          ry="119"
-          stroke="#E8EEF6"
-          strokeWidth="1"
-          transform="rotate(-12 265 207)"
-        />
-        <path d="M70 210H178L245 160H330L440 112" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M120 102L190 124L250 198L354 250L474 250" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M125 318L210 252L250 198L332 160L451 190" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M210 252L280 316L363 264" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M250 198L256 96L336 126" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M330 160L356 198L452 126" stroke="#BCC7DA" strokeWidth="1.25" />
-        <path d="M190 124L330 160" stroke="#D2D9E6" strokeWidth="1.25" />
-        <path d="M356 198L474 250" stroke="#D2D9E6" strokeWidth="1.25" />
-        {[
-          [70, 210],
-          [120, 102],
-          [125, 318],
-          [178, 210],
-          [190, 124],
-          [210, 252],
-          [245, 160],
-          [250, 198],
-          [256, 96],
-          [280, 316],
-          [330, 160],
-          [336, 126],
-          [354, 250],
-          [356, 198],
-          [363, 264],
-          [440, 112],
-          [451, 190],
-          [452, 126],
-          [474, 250]
-        ].map(([cx, cy]) => (
-          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="3" fill="#B7C2D4" />
-        ))}
-        <circle cx="190" cy="124" r="5" fill="#8491A7" />
-        <circle cx="210" cy="252" r="5.5" fill="#0B1D3D" />
-        <circle cx="440" cy="112" r="5.5" fill="#0B1D3D" />
-      </svg>
-      <div className="dot-field dot-field-top" />
-      <div className="dot-field dot-field-bottom" />
-      <div className="hero-tile hero-tile-small hero-tile-chart">
-        <BarChart3 aria-hidden="true" />
-      </div>
-      <div className="hero-tile hero-tile-small hero-tile-users">
-        <UsersRound aria-hidden="true" />
-      </div>
-      <div className="hero-tile hero-tile-small hero-tile-globe">
-        <Globe2 aria-hidden="true" />
-      </div>
-      <div className="hero-tile hero-tile-small hero-tile-code">
-        <Code2 aria-hidden="true" />
-      </div>
-      <div className="hero-tile hero-tile-center">
-        <img src={lumeSymbol} alt="" />
-      </div>
+      <img src={heroImage} alt="" loading="eager" decoding="async" />
     </div>
   );
 }
@@ -124,12 +60,6 @@ function HeroNetwork() {
 export function App() {
   return (
     <div className="page-shell">
-      <img
-        className="desktop-parity-layer"
-        src={desktopParityReference}
-        alt=""
-        aria-hidden="true"
-      />
       <header className="site-header">
         <div className="container">
           <Logo />
@@ -151,7 +81,7 @@ export function App() {
                 <ArrowRight aria-hidden="true" size={22} strokeWidth={1.9} />
               </a>
             </div>
-            <HeroNetwork />
+            <HeroArtwork />
           </div>
         </section>
 

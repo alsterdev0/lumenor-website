@@ -53,10 +53,6 @@ a {
   overflow-x: clip;
 }
 
-.desktop-parity-layer {
-  display: none;
-}
-
 .container {
   width: min(calc(100% - 116px), 940px);
   margin-inline: auto;
@@ -139,102 +135,18 @@ a {
 .hero-visual {
   position: relative;
   width: 475px;
+  max-width: none;
   min-width: 0;
-  height: 405px;
+  aspect-ratio: 1191 / 1117;
   margin-top: -124px;
   margin-left: -45px;
 }
 
-.network-lines {
-  position: absolute;
-  inset: 0 -15px 0 -10px;
-  width: calc(100% + 25px);
+.hero-visual img {
+  width: 100%;
   height: 100%;
-  filter: drop-shadow(0 20px 24px rgba(16, 38, 74, 0.05));
-}
-
-.dot-field {
-  position: absolute;
-  width: 116px;
-  height: 76px;
-  opacity: 0.72;
-  background-image: radial-gradient(circle, rgba(141, 162, 198, 0.52) 1px, transparent 1.2px);
-  background-size: 12px 12px;
-}
-
-.dot-field-top {
-  top: 38px;
-  right: 31px;
-}
-
-.dot-field-bottom {
-  bottom: 54px;
-  left: 238px;
-}
-
-.hero-tile {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  background: rgba(255, 255, 255, 0.93);
-  border: 1px solid rgba(16, 38, 74, 0.07);
-  border-radius: 19px;
-  box-shadow:
-    0 16px 26px rgba(16, 38, 74, 0.14),
-    0 4px 9px rgba(16, 38, 74, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  color: #8da2d6;
-}
-
-.hero-tile-small {
-  width: 91px;
-  height: 56px;
-}
-
-.hero-tile-small svg {
-  width: 33px;
-  height: 33px;
-  stroke-width: 1.75;
-}
-
-.hero-tile-chart {
-  top: 71px;
-  left: 118px;
-  transform: rotate(0.5deg);
-}
-
-.hero-tile-users {
-  top: 211px;
-  left: 4px;
-}
-
-.hero-tile-globe {
-  top: 142px;
-  right: -3px;
-}
-
-.hero-tile-code {
-  bottom: 51px;
-  left: 229px;
-}
-
-.hero-tile-center {
-  top: 150px;
-  left: 210px;
-  width: 137px;
-  height: 88px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, #122950 0%, #0b1d3d 100%);
-  box-shadow:
-    0 26px 34px rgba(11, 29, 61, 0.22),
-    0 10px 0 rgba(144, 156, 179, 0.72),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transform: rotate(0.5deg);
-}
-
-.hero-tile-center img {
-  width: 54px;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .section-divider {
@@ -495,20 +407,6 @@ a {
   }
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
-  .desktop-parity-layer {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    user-select: none;
-  }
-}
-
 @media (max-width: 760px) {
   .container {
     width: min(calc(100% - 32px), 940px);
@@ -536,10 +434,7 @@ a {
   }
 
   .hero-visual {
-    height: 335px;
-    transform: scale(0.9);
-    transform-origin: center top;
-    margin-bottom: -32px;
+    margin-bottom: -18px;
   }
 
   .button-primary {
@@ -591,8 +486,7 @@ a {
 
 @media (max-width: 430px) {
   .hero-visual {
-    width: 112%;
-    margin-left: -6%;
+    width: min(100%, 340px);
   }
 
   .portfolio-logo {

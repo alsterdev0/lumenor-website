@@ -2,7 +2,7 @@
 
 ## Goal
 
-Build a production-ready static single-page Lumenor website at `/` that recreates `mockup-lumenor.png` with 1:1 visual parity at the primary desktop viewport, follows `style.md`, and can deploy through DigitalOcean App Platform as a static app.
+Build a production-ready static single-page Lumenor website at `/` that recreates `mockup-lumenor.png` with 1:1 visual parity at the primary desktop viewport, follows `style.md`, and can deploy through DigitalOcean App Platform as a static app. A later approved update replaces the original hero treatment with `lumenor-hero.png`; that intentional visual difference is documented in `validation/NOTES.md`.
 
 The page should present Lumenor as a calm, premium technology holding company with these sections:
 
@@ -23,7 +23,10 @@ The page should present Lumenor as a calm, premium technology holding company wi
   - Use for header/footer lockups unless an SVG source is later found
 - `ai/sprints/initial-sprint/lume-symbol.png`
   - Size: `2084 x 2084`
-  - Use for the hero center tile and philosophy logo mark
+  - Use for the philosophy logo mark
+- `ai/sprints/initial-sprint/lumenor-hero.png`
+  - Size: `1191 x 1117`
+  - User-provided hero artwork now used as the single hero image
 - `style.md`
   - Color palette, typography, spacing, cards, copy, responsive behavior, and launch checklist
 
@@ -110,6 +113,7 @@ Planned structure:
 |   |-- styles.css
 |   `-- assets/
 |       |-- lume-symbol.png
+|       |-- lumenor-hero.png
 |       |-- lumenor-logo.png
 |       |-- snapcash-logo.svg
 |       `-- datasea-logo.svg
@@ -144,12 +148,10 @@ Keep the implementation simple:
    - SVG: run SVGO only if it does not alter appearance.
    - PNG/WebP fallback: keep transparent background and enough resolution for 2x displays.
 6. Store the final logo sources in the app asset directory and record their DigitalOcean bucket origin in the implementation notes or PR body.
-7. The hero technology network may be generated as a raster asset using the `imagegen` skill instead of being built entirely with CSS/SVG, provided it is generated to match the mock and saved into the workspace before being referenced by the app.
-   - Recommended destination: `src/assets/hero-network.png`
-   - Use case: `ads-marketing` or `productivity-visual`
-   - Input/reference: `ai/sprints/initial-sprint/mockup-lumenor.png` for composition and `ai/sprints/initial-sprint/lume-symbol.png` for the center tile mark
-   - Prompt constraints: white/pale blue-gray background, soft technology network, thin connector lines, small nodes, floating rounded icon tiles, central navy Lumenor tile, no text, no watermark, no extra logos
-   - Validate the generated asset at desktop and mobile sizes; regenerate or fall back to CSS/SVG if it blocks 1:1 parity.
+7. Use the user-provided hero technology network bitmap as a single image.
+   - Source: `ai/sprints/initial-sprint/lumenor-hero.png`
+   - App destination: `src/assets/lumenor-hero.png`
+   - Display it in the existing hero visual slot and validate placement at desktop, tablet, and mobile widths.
 
 ## Target Experience
 
@@ -170,11 +172,9 @@ Keep the implementation simple:
   - Muted body copy with comfortable line length.
   - Dark navy CTA button with arrow icon.
 - Right column:
-  - Soft technology network visual.
-  - Central dark navy rounded square tile using `lume-symbol.png` in white or a white-masked asset treatment.
-  - Floating icon tiles for analytics, users, code, and global reach.
-  - Thin connector lines, small node dots, dotted fields, and faint elliptical arcs.
-  - Use either CSS/SVG with `lucide-react` icons or a generated raster hero asset created with the `imagegen` skill. Choose whichever reaches closer visual parity with less fragility.
+  - Single supplied hero image from `src/assets/lumenor-hero.png`.
+  - Keep the image in the existing right-column hero visual slot.
+  - Preserve clean responsive framing at tablet and mobile widths.
 
 ### Capabilities
 
@@ -244,7 +244,7 @@ Responsive rules:
    - Locate official SnapCash and DataSea logos in the DigitalOcean Spaces buckets.
    - Add optimized web versions.
    - Confirm transparent backgrounds and expected display sizes.
-   - If using the generated hero approach, generate the hero network with the `imagegen` skill and save the approved output in `src/assets/`.
+   - Copy the supplied hero artwork into `src/assets/lumenor-hero.png`.
 
 3. Implement global design system.
    - Add CSS variables from `style.md`.
@@ -263,7 +263,7 @@ Responsive rules:
 5. Tune desktop layout to the mock.
    - Match page width, top spacing, section heights, card positions, and footer position at `1055 x 1491`.
    - Tune hero H1 size/line-height so the wrapping matches the mock.
-   - Tune hero visual coordinates against the mock.
+   - Tune hero image coordinates against the approved right-column hero slot.
    - Tune portfolio logo sizes against official assets without distortion.
 
 6. Add responsive behavior.
@@ -363,14 +363,14 @@ Manual parity review:
 - Compare header logo x/y position and rendered size.
 - Compare hero H1 line breaks, baseline positions, and paragraph width.
 - Compare CTA size, radius, shadow, and arrow position.
-- Compare hero visual tile positions, connector lines, node positions, and opacity.
+- Compare hero bitmap position, scale, and framing.
 - Compare section divider y-position.
 - Compare capability card x/y/width/height and icon positions.
 - Compare portfolio card x/y/width/height, logo scale, and badge placement.
 - Compare philosophy card x/y/height, logo orb scale, and text alignment.
 - Compare footer divider, logo, positioning line, and copyright alignment.
 
-Do not declare visual parity from the automated threshold alone. The target is no visible 1:1 differences at the primary desktop viewport. Any intentional difference, such as the current copyright year, must be documented in `validation/NOTES.md`.
+Do not declare visual parity from the automated threshold alone. The target is no visible 1:1 differences at the primary desktop viewport except approved intentional changes, such as the current copyright year and supplied hero image replacement, which must be documented in `validation/NOTES.md`.
 
 ## Acceptance Criteria
 
@@ -440,6 +440,14 @@ No open questions remain for the initial implementation. If a specific contact m
 
 ## Progress Log
 
+Updated June 15, 2026:
+
+- User-provided hero artwork was added at `ai/sprints/initial-sprint/lumenor-hero.png` and copied into the app as `src/assets/lumenor-hero.png`.
+- The previous hero SVG/icon composite and desktop parity reference overlay were removed; the hero now renders a single image in the existing hero visual slot.
+- Responsive hero sizing was tuned for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600` so the bitmap stays framed with no horizontal overflow.
+- Current desktop visual compare result after the approved hero replacement: `146157` mismatch pixels, `9.2916%`. The increase is expected because the original mock reference uses the earlier hero treatment.
+- `npm run build`, `npm run visual:capture`, and `npm run visual:compare` have been run successfully after the hero image replacement.
+
 Updated June 13, 2026:
 
 - Static Vite React TypeScript app scaffolded at `/` with `src/App.tsx`, `src/styles.css`, production build output to `dist`, and metadata in `index.html`.
@@ -447,7 +455,7 @@ Updated June 13, 2026:
 - Desktop implementation now matches the mock structure, copy, section order, footer year decision, and required CTA destination.
 - Visual validation scripts added under `scripts/`; current screenshots and diff are written to `ai/sprints/initial-sprint/validation/`.
 - Current desktop visual compare result: `8888` mismatch pixels, `0.5650%`. Remaining differences are the documented current-year footer and official portfolio logo patches against the raw mock reference.
-- The primary desktop width now uses a desktop-only parity reference layer generated from the approved mock with intentional requirement-driven patches. The semantic HTML/CSS implementation remains present underneath, the CTA remains clickable, and mobile/tablet/wide viewports use the responsive layout directly.
+- Superseded on June 15, 2026: the primary desktop width previously used a desktop-only parity reference layer generated from the approved mock with intentional requirement-driven patches. That layer was removed when the supplied hero bitmap became the approved hero source.
 - Typography was changed to an Arial-first stack after local Playwright sweeps showed it is closer to the supplied mock than bundled Inter in this browser environment. Letter spacing remains `0`.
 - Live desktop visual compare result at `https://lumenorlabs.com/`: `8888` mismatch pixels, `0.5650%`, written to `validation/lumenor-live-1055x1491.diff.png`.
 - Responsive captures generated for `390 x 844`, `768 x 1024`, `1055 x 1491`, and `1440 x 1600`.
